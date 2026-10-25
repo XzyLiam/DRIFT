@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <title>DRIFT — Daily Unique Maps</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <div id="loading">LOADING DRIFT...</div>
+
+  <div id="menu">
+    <div class="menu-content">
+      <h1>DRIFT</h1>
+      <p class="tagline">A new track every day</p>
+      <div class="menu-buttons">
+        <button id="btn-play">PLAY</button>
+        <button id="btn-shop">SHOP</button>
+        <button id="btn-leaderboard">LEADERBOARD</button>
+        <button id="btn-how">HOW TO PLAY</button>
+        <button id="btn-settings">SETTINGS</button>
+      </div>
+      <div class="coins-display">Coins: <span id="menu-coins">0</span></div>
+    </div>
+  </div>
+
+  <div id="shop-screen" class="overlay-screen">
+    <h2>SHOP</h2>
+    <div id="shop-items"></div>
+    <button class="back-btn" data-back="menu">BACK</button>
+  </div>
+
+  <div id="leaderboard-screen" class="overlay-screen">
+    <h2>LEADERBOARD</h2>
+    <div id="leaderboard-list"></div>
+    <button class="back-btn" data-back="menu">BACK</button>
+  </div>
+
+  <div id="how-screen" class="overlay-screen">
+    <h2>HOW TO PLAY</h2>
+    <div class="how-text">
+      <p><strong>PC:</strong> W/S accelerate/brake, A/D steer. Space handbrake. Drift hard for points.</p>
+      <p><strong>Mobile:</strong> Use the steering wheel at the bottom. Gas and brake buttons appear on the sides.</p>
+      <p>Every day the map is completely different (seeded by date). Earn coins by drifting and buy upgrades.</p>
+      <p>Stay on the track. High speed + high angle = big score.</p>
+    </div>
+    <button class="back-btn" data-back="menu">BACK</button>
+  </div>
+
+  <div id="settings-screen" class="overlay-screen">
+    <h2>SETTINGS</h2>
+    <label>Master Volume <input type="range" id="volume" min="0" max="1" step="0.01" value="0.6"></label>
+    <label><input type="checkbox" id="shadows" checked> Shadows</label>
+    <label><input type="checkbox" id="particles" checked> Tire Smoke</label>
+    <button class="back-btn" data-back="menu">BACK</button>
+  </div>
+
+  <div id="hud">
+    <div id="speed">0</div>
+    <div id="score">0</div>
+    <div id="coins-hud">0</div>
+    <div id="drift-multiplier">x1</div>
+    <button id="btn-pause">❚❚</button>
+  </div>
+
+  <div id="mobile-controls">
+    <div id="steering-wheel">
+      <div class="wheel-inner"></div>
+    </div>
+    <button id="btn-gas" class="mobile-btn">GAS</button>
+    <button id="btn-brake" class="mobile-btn">BRAKE</button>
+  </div>
+
+  <div id="pause-screen" class="overlay-screen" style="display:none;">
+    <h2>PAUSED</h2>
+    <button id="btn-resume">RESUME</button>
+    <button id="btn-menu-from-pause">MAIN MENU</button>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>

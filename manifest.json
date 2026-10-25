@@ -1,0 +1,9 @@
+{
+  "name": "DRIFT",
+  "short_name": "DRIFT",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "background_color": "#050508",
+  "theme_color": "#0a0a12",
+  "orientation": "landscape"
+}

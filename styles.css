@@ -1,0 +1,69 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #050508;
+  color: #eee;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  overflow: hidden;
+  touch-action: none;
+  height: 100vh;
+  width: 100vw;
+}
+#canvas { position: fixed; inset: 0; display: block; z-index: 1; }
+#loading {
+  position: fixed; inset: 0; background: #050508; display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; z-index: 100; letter-spacing: 4px;
+}
+#menu, .overlay-screen {
+  position: fixed; inset: 0; background: rgba(5,5,12,0.92); z-index: 50;
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  backdrop-filter: blur(8px);
+}
+.menu-content { text-align: center; }
+h1 { font-size: 5rem; letter-spacing: 12px; margin-bottom: 0.2em; background: linear-gradient(90deg,#ff3366,#66ccff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.tagline { opacity: 0.7; margin-bottom: 2rem; letter-spacing: 3px; }
+.menu-buttons { display: flex; flex-direction: column; gap: 0.8rem; min-width: 220px; }
+button {
+  background: #1a1a28; color: #fff; border: 1px solid #444; padding: 0.9rem 1.5rem;
+  font-size: 1.1rem; letter-spacing: 2px; cursor: pointer; transition: 0.2s;
+}
+button:hover { background: #ff3366; border-color: #ff3366; }
+.coins-display { margin-top: 2rem; font-size: 1.2rem; }
+#hud {
+  position: fixed; top: 20px; left: 20px; z-index: 10; pointer-events: none;
+  font-family: monospace; font-size: 1.4rem;
+}
+#hud > div { margin-bottom: 6px; text-shadow: 0 0 8px #000; }
+#btn-pause { pointer-events: auto; position: fixed; top: 20px; right: 20px; z-index: 10; padding: 0.5rem 1rem; }
+#mobile-controls {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 220px; z-index: 20;
+  display: none; pointer-events: none;
+}
+#steering-wheel {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  width: 160px; height: 160px; border-radius: 50%; border: 6px solid #444;
+  background: radial-gradient(circle, #222 40%, #111);
+  pointer-events: auto; touch-action: none;
+}
+.wheel-inner {
+  position: absolute; inset: 20px; border-radius: 50%; border: 3px solid #666;
+  background: conic-gradient(from 0deg, #333, #555, #333);
+}
+.mobile-btn {
+  position: absolute; bottom: 40px; width: 90px; height: 90px; border-radius: 50%;
+  pointer-events: auto; font-size: 0.9rem;
+}
+#btn-gas { right: 30px; background: #22aa55; }
+#btn-brake { left: 30px; background: #aa3333; }
+.overlay-screen { display: none; }
+.overlay-screen.active { display: flex; }
+#shop-items, #leaderboard-list { max-height: 60vh; overflow-y: auto; width: min(500px, 90vw); margin: 1rem 0; }
+.shop-item, .lb-entry {
+  background: #151520; margin: 0.5rem 0; padding: 1rem; border-radius: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.how-text { max-width: 500px; line-height: 1.6; text-align: left; padding: 1rem; }
+@media (max-width: 800px) {
+  h1 { font-size: 3.2rem; }
+  #mobile-controls { display: block; }
+  #hud { font-size: 1.1rem; }
+}
